@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome to House Price Prediction</h1>
+
+    <form action="predict" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col">
+          <label for="Frontage">Frontage Area</label>
+        <input type="text" class="form-control" name="FrontageArea" placeholder="FrontageArea">
+        </div>
+        <div class="col">
+          <label for="LotArea">Lot Area</label>
+          <input type="text" class="form-control" name="LotArea" placeholder="LotArea">
+        </div>
+        <div class="col">
+          <label for="LotArea">Pool Area</label>
+          <input type="text" class="form-control" name="PoolArea" placeholder="PoolArea">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="LotShape">Lot Shape</label>
+          <select class="form-control" name="LotShape">
+            <option>Regular</option>
+            <option>Irregular1</option>
+            <option>Irregular2</option>
+            <option>Irregular3</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="SaleCondition">Sale Condition</label>
+          <select class="form-control" name="SaleCondition">
+            <option>Normal</option>
+            <option>Anormal</option>
+            <option>Partial</option>
+            <option>Adjastable</option>
+            <option>Family</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="LandContour">Land Contour</label>
+          <select class="form-control" name="LandContour">
+            <option>Level</option>
+            <option>Bank</option>
+            <option>Low</option>
+            <option>Hill</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary">Calculate</button>
+        </div>
+      </div>
+      
+      {% endblock %}
